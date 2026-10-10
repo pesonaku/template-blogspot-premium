@@ -9,31 +9,23 @@
   function initLandingPage() {
     var root = document.getElementById('root');
     if (!root) {
-      console.error('[Blogspot Premium] Root container #root not found.');
+      console.error('[Blogspot Premium] Root container #root tidak ditemukan.');
       return;
     }
 
     var settings = window.BloggerSettings || {};
-    var domain = window.location.hostname || '';
+    var domain = (window.location.hostname || '').toLowerCase();
     var licenseKey = (settings.licenseKey || '').trim();
     var apiUrl = (settings.licenseApiUrl || 'https://license.example.com/api/verify-license').trim();
 
+    // Lingkungan Development / Preview Blogspot
     var isDev = domain === 'localhost' || 
                 domain === '127.0.0.1' || 
-                domain.indexOf('.blogger.com') !== -1 || 
+                domain.indexOf('blogger.com') !== -1 ||
+                domain.indexOf('blogspot.com') !== -1 ||
                 domain === '';
 
-    // Tampilkan Loading
-    root.innerHTML = `
-      <div class="min-h-screen bg-slate-950 flex flex-col items-center justify-center p-6 text-slate-100">
-        <div class="flex items-center gap-3 bg-slate-900 border border-slate-800 px-6 py-4 rounded-2xl shadow-2xl">
-          <div style="width: 20px; height: 20px; border: 2px solid #818cf8; border-top-color: transparent; border-radius: 50%;" class="animate-spin"></div>
-          <span class="text-sm font-medium tracking-wide text-slate-300">Memverifikasi Lisensi Domain...</span>
-        </div>
-      </div>
-    `;
-
-    // Fungsi Render Tampilan Utama
+    // Fungsi Render Tampilan Utama Landing Page
     function renderMainTemplate() {
       var brandName = settings.brandName || 'LANDING PRO';
       var navCtaText = settings.navCtaText || 'Mulai Sekarang';
@@ -224,24 +216,24 @@
       `;
     }
 
-    // Bypass jika di preview / localhost tanpa lisensi
-    if (isDev && !licenseKey) {
-      renderMainTemplate();
-      return;
-    }
-
+    // Pengecekan status lisensi
     if (!licenseKey) {
+      if (isDev) {
+        // Mode pratinjau / development di subdomain Blogspot
+        renderMainTemplate();
+        return;
+      }
       renderLicenseInvalid('Kode lisensi belum dimasukkan di menu Tata Letak Blogspot.');
       return;
     }
 
-    // Verifikasi ke Laravel API
+    // Jika API masih default example.com atau belum terhubung server kustom
     if (apiUrl.indexOf('example.com') !== -1) {
-      // Mock / Default preview mode saat server belum diset
       renderMainTemplate();
       return;
     }
 
+    // Melakukan validasi resmi ke backend API Laravel
     fetch(apiUrl, {
       method: 'POST',
       headers: {
@@ -267,6 +259,7 @@
     });
   }
 
+  // Eksekusi segera jika DOM sudah ready
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initLandingPage);
   } else {

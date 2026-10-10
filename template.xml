@@ -211,7 +211,7 @@
   <!-- ========================================================
        KONEKSI REPOSITORY GITHUB VIA JSDELIVR (REACT JS BUNDLE)
        ======================================================== -->
-  <script defer='defer' src='https://cdn.jsdelivr.net/gh/pesonaku/template-blogspot-premium@main/dist/app.js'></script>
+  <script src='https://cdn.jsdelivr.net/gh/pesonaku/template-blogspot-premium@main/dist/app.js'></script>
 
 </body>
 </html>
