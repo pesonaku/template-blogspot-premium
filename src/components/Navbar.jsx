@@ -1,11 +1,24 @@
-import React from 'react';
-import { Layers, ShieldCheck, ArrowRight } from 'lucide-react';
+import React, { useState } from 'react';
+import { Layers, ShieldCheck, ArrowRight, Menu, X } from 'lucide-react';
 
 export default function Navbar() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const bloggerSettings = window.BloggerSettings || {};
   const brandName = bloggerSettings.brandName || 'PREMIUM THEME';
   const ctaText = bloggerSettings.navCtaText || 'Mulai Sekarang';
   const ctaUrl = bloggerSettings.navCtaUrl || '#get-started';
+
+  // Fallback default links jika belum diatur di menu Tata Letak
+  const defaultNavLinks = [
+    { title: 'Beranda', url: '#hero' },
+    { title: 'Fitur', url: '#fitur' },
+    { title: 'Tata Letak', url: '#tata-letak' },
+    { title: 'Bantuan', url: '#faq' },
+  ];
+
+  const navLinks = (bloggerSettings.navLinks && bloggerSettings.navLinks.length > 0)
+    ? bloggerSettings.navLinks
+    : defaultNavLinks;
 
   return (
     <header className="sticky top-0 z-50 glass-nav transition-all duration-300">
@@ -27,25 +40,65 @@ export default function Navbar() {
             </div>
           </div>
 
-          {/* Navigation Links Skeleton */}
+          {/* Navigation Links Desktop */}
           <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
-            <a href="#hero" className="hover:text-indigo-400 transition-colors">Beranda</a>
-            <a href="#fitur" className="hover:text-indigo-400 transition-colors">Fitur</a>
-            <a href="#tata-letak" className="hover:text-indigo-400 transition-colors">Tata Letak</a>
-            <a href="#faq" className="hover:text-indigo-400 transition-colors">Bantuan</a>
+            {navLinks.map((link, idx) => (
+              <a
+                key={idx}
+                href={link.url}
+                className="hover:text-indigo-400 transition-colors"
+              >
+                {link.title}
+              </a>
+            ))}
           </nav>
 
-          {/* Action CTA */}
+          {/* Action CTA & Mobile Toggle */}
           <div className="flex items-center gap-3">
             <a
               href={ctaUrl}
-              className="inline-flex items-center gap-2 text-sm font-semibold bg-white text-slate-900 hover:bg-slate-100 px-5 py-2.5 rounded-xl transition-all duration-200 shadow-sm shadow-white/10 hover:shadow-md"
+              className="hidden sm:inline-flex items-center gap-2 text-sm font-semibold bg-white text-slate-900 hover:bg-slate-100 px-5 py-2.5 rounded-xl transition-all duration-200 shadow-sm shadow-white/10 hover:shadow-md"
             >
               <span>{ctaText}</span>
               <ArrowRight className="w-4 h-4 text-slate-700" />
             </a>
+
+            {/* Mobile Hamburger Button */}
+            <button
+              type="button"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="md:hidden p-2 rounded-xl bg-slate-900/80 border border-slate-800 text-slate-300 hover:text-white transition-colors"
+              aria-label="Toggle Menu"
+            >
+              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </button>
           </div>
         </div>
+
+        {/* Mobile Navigation Dropdown */}
+        {mobileMenuOpen && (
+          <div className="md:hidden py-4 border-t border-slate-800/80 space-y-2">
+            {navLinks.map((link, idx) => (
+              <a
+                key={idx}
+                href={link.url}
+                onClick={() => setMobileMenuOpen(false)}
+                className="block px-3 py-2 rounded-lg text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-900/60 transition-colors"
+              >
+                {link.title}
+              </a>
+            ))}
+            <div className="pt-3 border-t border-slate-800/60 sm:hidden">
+              <a
+                href={ctaUrl}
+                className="flex items-center justify-center gap-2 text-sm font-semibold bg-white text-slate-900 hover:bg-slate-100 px-4 py-2.5 rounded-xl transition duration-200"
+              >
+                <span>{ctaText}</span>
+                <ArrowRight className="w-4 h-4 text-slate-700" />
+              </a>
+            </div>
+          </div>
+        )}
       </div>
     </header>
   );

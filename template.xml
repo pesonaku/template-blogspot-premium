@@ -15,175 +15,175 @@
       Theme Name    : Premium Landing Page Blogspot
       Developer     : Pesonaku & Antigravity AI
       Repository    : https://github.com/pesonaku/template-blogspot-premium
-      Version       : 1.0.0
+      Version       : 1.0.2
     */
 
-    /* CSS Reset */
-    *, *::before, *::after {
+    /* CSS Reset untuk Halaman Publik (TIDAK mengganggu panel editor Tata Letak) */
+    body:not(#layout) *, body:not(#layout) *::before, body:not(#layout) *::after {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
     
-    html, body {
+    body:not(#layout) {
       background-color: #020617;
       color: #f8fafc;
       font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    }
+
+    /* Sembunyikan kontainer data widget di tampilan live publik */
+    .blogger-settings-wrapper {
+      display: none !important;
     }
 
     /* ==========================================================
        TAMPILAN KHUSUS MENU TATA LETAK BLOGSPOT (DASHBOARD LAYOUT)
        ========================================================== */
     body#layout {
-      background-color: #0b1120;
+      background-color: #0f172a;
+      color: #e2e8f0;
       padding: 24px;
       font-family: system-ui, -apple-system, sans-serif;
     }
 
-    body#layout .settings-container {
-      max-width: 1100px;
+    body#layout .blogger-settings-wrapper {
+      display: block !important;
+      max-width: 1000px;
       margin: 0 auto;
     }
 
-    body#layout .settings-header-banner {
+    body#layout .layout-banner {
       background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
       color: #ffffff;
       padding: 20px 24px;
-      border-radius: 16px;
+      border-radius: 14px;
       margin-bottom: 24px;
-      box-shadow: 0 10px 25px -5px rgba(79, 70, 229, 0.3);
+      box-shadow: 0 10px 25px -5px rgba(79, 70, 229, 0.4);
     }
 
-    body#layout .settings-header-banner h2 {
+    body#layout .layout-banner h2 {
       font-size: 20px;
       font-weight: 800;
-      letter-spacing: -0.02em;
       margin-bottom: 6px;
     }
 
-    body#layout .settings-header-banner p {
+    body#layout .layout-banner p {
       font-size: 13px;
-      opacity: 0.9;
+      opacity: 0.95;
+      line-height: 1.5;
     }
 
-    body#layout .settings-section {
+    body#layout .layout-section {
       background: #1e293b;
-      border: 2px dashed #4f46e5;
-      padding: 20px;
-      border-radius: 16px;
-      margin-bottom: 24px;
+      border: 1px solid #334155;
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin-bottom: 20px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    }
-
-    body#layout .settings-section::before {
-      content: '⚙️ CONTROL PANEL SETTING (Klik "Edit" pada widget untuk mengatur sesi)';
-      display: block;
-      font-size: 13px;
-      font-weight: 700;
-      color: #818cf8;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin-bottom: 16px;
-      padding-bottom: 10px;
-      border-bottom: 1px solid #334155;
     }
   ]]></b:skin>
 
   <!-- ========================================================
        KONEKSI REPOSITORY GITHUB VIA JSDELIVR (CSS TAILWIND)
        ======================================================== -->
-  <link href='https://cdn.jsdelivr.net/gh/pesonaku/template-blogspot-premium@v1.0.1/dist/style.css' rel='stylesheet'/>
+  <link href='https://cdn.jsdelivr.net/gh/pesonaku/template-blogspot-premium@v1.0.2/dist/style.css' rel='stylesheet'/>
 
 </head>
 <body>
 
   <!-- ========================================================
-       SECTION CONTROL PANEL: MENU TATA LETAK BLOGGER
+       PANEL KONTROL TATA LETAK (LAYOUT) BLOGGER
        ======================================================== -->
-  <div class='settings-container'>
-    <b:section class='settings-section' id='landing-settings' maxwidgets='12' showaddelement='yes'>
+  <div class='blogger-settings-wrapper'>
+    
+    <div class='layout-banner'>
+      <h2>⚙️ Control Panel Landing Page Premium</h2>
+      <p>Klik tombol <strong>Edit</strong> pada widget di bawah untuk mengubah logo/brand, menu navigasi, kunci lisensi, teks hero, dan sesi konten tanpa menyentuh kode template.</p>
+    </div>
 
-      <!-- Widget 1: Lisensi Domain & API Server -->
-      <b:widget id='HTML1' locked='false' title='🔐 01. Pengaturan Lisensi Domain' type='HTML' version='2' visible='true'>
+    <!-- 01. Identitas Brand & CTA -->
+    <b:section class='layout-section' id='header-settings' maxwidgets='2' name='👑 01. IDENTITAS BRAND &amp; CTA' showaddelement='yes'>
+      <b:widget id='HTML2' locked='false' title='👑 01. Identitas Brand &amp; CTA' type='HTML' version='2' visible='true'>
         <b:includable id='main'>
-          <script type='text/javascript'>
-            window.BloggerSettings = window.BloggerSettings || {};
-            var rawContent1 = `<data:content/>`;
-            try {
-              var licenseData = JSON.parse(rawContent1);
-              window.BloggerSettings.licenseKey = licenseData.licenseKey || "";
-              window.BloggerSettings.licenseApiUrl = licenseData.licenseApiUrl || "";
-            } catch(e) {
-              window.BloggerSettings.licenseKey = rawContent1.trim();
-            }
-          </script>
+          <div class='widget-content' id='widget-brand-data'>
+            <data:content/>
+          </div>
         </b:includable>
       </b:widget>
-
-      <!-- Widget 2: Identitas Brand / Navbar -->
-      <b:widget id='HTML2' locked='false' title='💎 02. Identitas Brand &amp; Navbar' type='HTML' version='2' visible='true'>
-        <b:includable id='main'>
-          <script type='text/javascript'>
-            window.BloggerSettings = window.BloggerSettings || {};
-            var rawContent2 = `<data:content/>`;
-            try {
-              var brandData = JSON.parse(rawContent2);
-              window.BloggerSettings.brandName = brandData.brandName || "LANDING PRO";
-              window.BloggerSettings.navCtaText = brandData.navCtaText || "Hubungi Kami";
-              window.BloggerSettings.navCtaUrl = brandData.navCtaUrl || "#fitur";
-            } catch(e) {}
-          </script>
-        </b:includable>
-      </b:widget>
-
-      <!-- Widget 3: Sesi Hero Section -->
-      <b:widget id='HTML3' locked='false' title='🚀 03. Pengaturan Hero Section' type='HTML' version='2' visible='true'>
-        <b:includable id='main'>
-          <script type='text/javascript'>
-            window.BloggerSettings = window.BloggerSettings || {};
-            var rawContent3 = `<data:content/>`;
-            try {
-              var heroData = JSON.parse(rawContent3);
-              window.BloggerSettings.heroBadge = heroData.heroBadge;
-              window.BloggerSettings.heroTitle = heroData.heroTitle;
-              window.BloggerSettings.heroSubtitle = heroData.heroSubtitle;
-              window.BloggerSettings.heroPrimaryCta = heroData.heroPrimaryCta;
-              window.BloggerSettings.heroSecondaryCta = heroData.heroSecondaryCta;
-            } catch(e) {}
-          </script>
-        </b:includable>
-      </b:widget>
-
-      <!-- Widget 4: Sesi Fitur / Modul -->
-      <b:widget id='HTML4' locked='false' title='🧩 04. Pengaturan Sesi Modul &amp; Fitur' type='HTML' version='2' visible='true'>
-        <b:includable id='main'>
-          <script type='text/javascript'>
-            window.BloggerSettings = window.BloggerSettings || {};
-            var rawContent4 = `<data:content/>`;
-            try {
-              var featData = JSON.parse(rawContent4);
-              window.BloggerSettings.featuresTitle = featData.featuresTitle;
-              window.BloggerSettings.featuresSubtitle = featData.featuresSubtitle;
-            } catch(e) {}
-          </script>
-        </b:includable>
-      </b:widget>
-
-      <!-- Widget 5: Sesi Footer -->
-      <b:widget id='HTML5' locked='false' title='📜 05. Pengaturan Footer' type='HTML' version='2' visible='true'>
-        <b:includable id='main'>
-          <script type='text/javascript'>
-            window.BloggerSettings = window.BloggerSettings || {};
-            var rawContent5 = `<data:content/>`;
-            try {
-              var footerData = JSON.parse(rawContent5);
-              window.BloggerSettings.copyrightText = footerData.copyrightText;
-            } catch(e) {}
-          </script>
-        </b:includable>
-      </b:widget>
-
     </b:section>
+
+    <!-- 02. Menu Navigasi Header -->
+    <b:section class='layout-section' id='nav-settings' maxwidgets='2' name='🧭 02. MENU NAVIGASI HEADER' showaddelement='yes'>
+      <b:widget id='LinkList1' locked='false' title='🧭 02. Link Menu Navigasi' type='LinkList' version='2' visible='true'>
+        <b:includable id='main'>
+          <div class='widget-content' id='nav-links-container'>
+            <ul>
+              <b:loop values='data:links' var='link'>
+                <li><a expr:href='data:link.target'><data:link.name/></a></li>
+              </b:loop>
+            </ul>
+          </div>
+        </b:includable>
+      </b:widget>
+    </b:section>
+
+    <!-- 03. Pengaturan Lisensi Domain & API -->
+    <b:section class='layout-section' id='license-settings' maxwidgets='2' name='🔐 03. PENGATURAN LISENSI DOMAIN' showaddelement='yes'>
+      <b:widget id='HTML1' locked='false' title='🔐 03. Lisensi Domain &amp; API Server' type='HTML' version='2' visible='true'>
+        <b:includable id='main'>
+          <div class='widget-content' id='widget-license-data'>
+            <data:content/>
+          </div>
+        </b:includable>
+      </b:widget>
+    </b:section>
+
+    <!-- 04. Hero Section & Banner -->
+    <b:section class='layout-section' id='hero-settings' maxwidgets='2' name='🚀 04. PENGATURAN HERO SECTION' showaddelement='yes'>
+      <b:widget id='HTML3' locked='false' title='🚀 04. Konten Hero Banner' type='HTML' version='2' visible='true'>
+        <b:includable id='main'>
+          <div class='widget-content' id='widget-hero-data'>
+            <data:content/>
+          </div>
+        </b:includable>
+      </b:widget>
+    </b:section>
+
+    <!-- 05. Sesi Fitur & Modul -->
+    <b:section class='layout-section' id='features-settings' maxwidgets='2' name='🧩 05. SESI FITUR &amp; MODUL' showaddelement='yes'>
+      <b:widget id='HTML4' locked='false' title='🧩 05. Pengaturan Sesi Fitur' type='HTML' version='2' visible='true'>
+        <b:includable id='main'>
+          <div class='widget-content' id='widget-features-data'>
+            <data:content/>
+          </div>
+        </b:includable>
+      </b:widget>
+    </b:section>
+
+    <!-- 06. Pengaturan Footer -->
+    <b:section class='layout-section' id='footer-settings' maxwidgets='2' name='📜 06. PENGATURAN FOOTER' showaddelement='yes'>
+      <b:widget id='HTML5' locked='false' title='📜 06. Footer &amp; Hak Cipta' type='HTML' version='2' visible='true'>
+        <b:includable id='main'>
+          <div class='widget-content' id='widget-footer-data'>
+            <data:content/>
+          </div>
+        </b:includable>
+      </b:widget>
+    </b:section>
+
+    <!-- 07. Konten Blog Utama (Wajib untuk Arsitektur Blogger) -->
+    <b:section class='layout-section' id='main' maxwidgets='1' name='📄 07. POSTINGAN BLOG (SISTEM)' showaddelement='no'>
+      <b:widget id='Blog1' locked='true' title='Posting Blog' type='Blog' version='2' visible='true'>
+        <b:includable id='main'>
+          <div class='blog-posts hfeed' style='display:none;'>
+            <b:loop values='data:posts' var='post'>
+              <article class='post hentry'><data:post.body/></article>
+            </b:loop>
+          </div>
+        </b:includable>
+      </b:widget>
+    </b:section>
+
   </div>
 
   <!-- ========================================================
@@ -211,7 +211,7 @@
   <!-- ========================================================
        KONEKSI REPOSITORY GITHUB VIA JSDELIVR (REACT JS BUNDLE)
        ======================================================== -->
-  <script src='https://cdn.jsdelivr.net/gh/pesonaku/template-blogspot-premium@v1.0.1/dist/app.js'></script>
+  <script src='https://cdn.jsdelivr.net/gh/pesonaku/template-blogspot-premium@v1.0.2/dist/app.js'></script>
 
 </body>
 </html>
