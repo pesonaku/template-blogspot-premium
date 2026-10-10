@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html b:css='false' b:defaultwidgetversion='2' b:js='true' b:layoutsVersion='3' b:responsive='true' expr:dir='data:blog.languageDirection' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+<head>
+  <meta content='width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1' name='viewport'/>
+  <title><data:view.title.escaped/></title>
+  
+  <b:include data='blog' name='all-head-content'/>
+
+  <!-- ========================================================
+       BLOGGER SKIN & TATA LETAK (LAYOUT) CONTROL PANEL STYLING
+       ======================================================== -->
+  <b:skin><![CDATA[
+    /* 
+      Theme Name    : Premium Landing Page Blogspot
+      Developer     : Pesonaku & Antigravity AI
+      Repository    : https://github.com/pesonaku/template-blogspot-premium
+      Version       : 1.0.0
+    */
+
+    /* CSS Reset */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    html, body {
+      background-color: #020617;
+      color: #f8fafc;
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    }
+
+    /* ==========================================================
+       TAMPILAN KHUSUS MENU TATA LETAK BLOGSPOT (DASHBOARD LAYOUT)
+       ========================================================== */
+    body#layout {
+      background-color: #0b1120;
+      padding: 24px;
+      font-family: system-ui, -apple-system, sans-serif;
+    }
+
+    body#layout .settings-container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    body#layout .settings-header-banner {
+      background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+      color: #ffffff;
+      padding: 20px 24px;
+      border-radius: 16px;
+      margin-bottom: 24px;
+      box-shadow: 0 10px 25px -5px rgba(79, 70, 229, 0.3);
+    }
+
+    body#layout .settings-header-banner h2 {
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 6px;
+    }
+
+    body#layout .settings-header-banner p {
+      font-size: 13px;
+      opacity: 0.9;
+    }
+
+    body#layout .settings-section {
+      background: #1e293b;
+      border: 2px dashed #4f46e5;
+      padding: 20px;
+      border-radius: 16px;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    body#layout .settings-section::before {
+      content: '⚙️ CONTROL PANEL SETTING (Klik "Edit" pada widget untuk mengatur sesi)';
+      display: block;
+      font-size: 13px;
+      font-weight: 700;
+      color: #818cf8;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #334155;
+    }
+  ]]></b:skin>
+
+  <!-- ========================================================
+       KONEKSI REPOSITORY GITHUB VIA JSDELIVR (CSS TAILWIND)
+       ======================================================== -->
+  <link href='https://cdn.jsdelivr.net/gh/pesonaku/template-blogspot-premium@main/dist/style.css' rel='stylesheet'/>
+
+</head>
+<body>
+
+  <!-- ========================================================
+       SECTION CONTROL PANEL: MENU TATA LETAK BLOGGER
+       ======================================================== -->
+  <div class='settings-container'>
+    <b:section class='settings-section' id='landing-settings' maxwidgets='12' showaddelement='yes'>
+
+      <!-- Widget 1: Lisensi Domain & API Server -->
+      <b:widget id='HTML1' locked='false' title='🔐 01. Pengaturan Lisensi Domain' type='HTML' version='2' visible='true'>
+        <b:widget-settings>
+          <b:widget-setting name='content'><![CDATA[{
+  "licenseKey": "PREM-DEMO-0001-ABCD",
+  "licenseApiUrl": "https://license.example.com/api/verify-license"
+}]]></b:widget-setting>
+        </b:widget-settings>
+        <b:includable id='main'>
+          <script type='text/javascript'>
+            window.BloggerSettings = window.BloggerSettings || {};
+            try {
+              var licenseData = <data:content/>;
+              window.BloggerSettings.licenseKey = licenseData.licenseKey || "";
+              window.BloggerSettings.licenseApiUrl = licenseData.licenseApiUrl || "";
+            } catch(e) {
+              window.BloggerSettings.licenseKey = "<data:content/>".trim();
+            }
+          </script>
+        </b:includable>
+      </b:widget>
+
+      <!-- Widget 2: Identitas Brand / Navbar -->
+      <b:widget id='HTML2' locked='false' title='💎 02. Identitas Brand & Navbar' type='HTML' version='2' visible='true'>
+        <b:widget-settings>
+          <b:widget-setting name='content'><![CDATA[{
+  "brandName": "LANDING PRO",
+  "navCtaText": "Hubungi Kami",
+  "navCtaUrl": "#fitur"
+}]]></b:widget-setting>
+        </b:widget-settings>
+        <b:includable id='main'>
+          <script type='text/javascript'>
+            window.BloggerSettings = window.BloggerSettings || {};
+            try {
+              var brandData = <data:content/>;
+              window.BloggerSettings.brandName = brandData.brandName || "LANDING PRO";
+              window.BloggerSettings.navCtaText = brandData.navCtaText || "Hubungi Kami";
+              window.BloggerSettings.navCtaUrl = brandData.navCtaUrl || "#fitur";
+            } catch(e) {}
+          </script>
+        </b:includable>
+      </b:widget>
+
+      <!-- Widget 3: Sesi Hero Section -->
+      <b:widget id='HTML3' locked='false' title='🚀 03. Pengaturan Hero Section' type='HTML' version='2' visible='true'>
+        <b:widget-settings>
+          <b:widget-setting name='content'><![CDATA[{
+  "heroBadge": "KERANGKA LANDING PAGE V1.0",
+  "heroTitle": "Template Blogspot Premium Berlisensi Domain",
+  "heroSubtitle": "Ditenagai oleh React JS, Tailwind CSS, dan Laravel API Server dengan koneksi langsung ke repository GitHub.",
+  "heroPrimaryCta": "Jelajahi Fitur",
+  "heroSecondaryCta": "Dokumentasi GitHub"
+}]]></b:widget-settings>
+        </b:widget-settings>
+        <b:includable id='main'>
+          <script type='text/javascript'>
+            window.BloggerSettings = window.BloggerSettings || {};
+            try {
+              var heroData = <data:content/>;
+              window.BloggerSettings.heroBadge = heroData.heroBadge;
+              window.BloggerSettings.heroTitle = heroData.heroTitle;
+              window.BloggerSettings.heroSubtitle = heroData.heroSubtitle;
+              window.BloggerSettings.heroPrimaryCta = heroData.heroPrimaryCta;
+              window.BloggerSettings.heroSecondaryCta = heroData.heroSecondaryCta;
+            } catch(e) {}
+          </script>
+        </b:includable>
+      </b:widget>
+
+      <!-- Widget 4: Sesi Fitur / Modul -->
+      <b:widget id='HTML4' locked='false' title='🧩 04. Pengaturan Sesi Modul & Fitur' type='HTML' version='2' visible='true'>
+        <b:widget-settings>
+          <b:widget-setting name='content'><![CDATA[{
+  "featuresTitle": "Kerangka Modul Siap Pakai",
+  "featuresSubtitle": "Kontrol konten setiap sesi tanpa menyentuh kode tema XML."
+}]]></b:widget-setting>
+        </b:widget-settings>
+        <b:includable id='main'>
+          <script type='text/javascript'>
+            window.BloggerSettings = window.BloggerSettings || {};
+            try {
+              var featData = <data:content/>;
+              window.BloggerSettings.featuresTitle = featData.featuresTitle;
+              window.BloggerSettings.featuresSubtitle = featData.featuresSubtitle;
+            } catch(e) {}
+          </script>
+        </b:includable>
+      </b:widget>
+
+      <!-- Widget 5: Sesi Footer -->
+      <b:widget id='HTML5' locked='false' title='📜 05. Pengaturan Footer' type='HTML' version='2' visible='true'>
+        <b:widget-settings>
+          <b:widget-setting name='content'><![CDATA[{
+  "copyrightText": "© 2026 Template Blogspot Premium. All rights reserved."
+}]]></b:widget-setting>
+        </b:widget-settings>
+        <b:includable id='main'>
+          <script type='text/javascript'>
+            window.BloggerSettings = window.BloggerSettings || {};
+            try {
+              var footerData = <data:content/>;
+              window.BloggerSettings.copyrightText = footerData.copyrightText;
+            } catch(e) {}
+          </script>
+        </b:includable>
+      </b:widget>
+
+    </b:section>
+  </div>
+
+  <!-- ========================================================
+       AREA UTAMA APLIKASI (REACT ROOT MOUNT)
+       ======================================================== -->
+  <div id='root'>
+    <!-- Loading Animation Skeleton Sebelum React Ter-load -->
+    <div style='min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; background: #020617; color: #94a3b8;'>
+      <div style='width: 48px; height: 48px; border: 3px solid rgba(99, 102, 241, 0.2); border-top-color: #6366f1; border-radius: 50%; animation: spin 1s linear infinite;'></div>
+      <p style='margin-top: 18px; font-size: 14px; font-weight: 500; letter-spacing: 0.03em;'>Memuat Landing Page...</p>
+    </div>
+    <style>
+      @keyframes spin {
+        to { transform: rotate(360deg); }
+      }
+    </style>
+  </div>
+
+  <!-- Injeksi Informasi Domain Otomatis untuk LicenseGuard -->
+  <script type='text/javascript'>
+    window.BloggerSettings = window.BloggerSettings || {};
+    window.BloggerSettings.domain = window.location.hostname;
+  </script>
+
+  <!-- ========================================================
+       KONEKSI REPOSITORY GITHUB VIA JSDELIVR (REACT JS BUNDLE)
+       ======================================================== -->
+  <script defer='defer' src='https://cdn.jsdelivr.net/gh/pesonaku/template-blogspot-premium@main/dist/app.js'></script>
+
+</body>
+</html>

@@ -1,0 +1,5 @@
+node_modules/
+.DS_Store
+*.log
+git_status.txt
+gh_out*.txt
