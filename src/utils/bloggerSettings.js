@@ -110,5 +110,35 @@ export function initBloggerSettings() {
     if (footerConf.copyrightText) window.BloggerSettings.copyrightText = footerConf.copyrightText;
   }
 
+  // --- SET DEFAULT DUMMY DATA FOR PRODUCTION ---
+  // Jika pengguna baru menginstall template dan widget masih kosong,
+  // gunakan data dummy ini agar tidak tampil blank.
+  const defaults = {
+    brandName: "TemplateKu",
+    navCtaText: "Beli Sekarang",
+    navCtaUrl: "https://wa.me/6281234567890",
+    licenseKey: "DEMO-KEY-12345",
+    licenseApiUrl: "example.com",
+    heroBadge: "Versi 1.0 Baru Saja Rilis!",
+    heroTitle: "Tingkatkan Penjualan Anda dengan Template Premium Ini",
+    heroSubtitle: "Solusi landing page Blogspot terbaik untuk bisnis online Anda. Cepat, responsif, dan mudah disesuaikan tanpa perlu mengerti kode.",
+    heroPrimaryCta: "Mulai Sekarang",
+    heroSecondaryCta: "Pelajari Lebih Lanjut",
+    featuresTitle: "Fitur Unggulan Kami",
+    featuresSubtitle: "Semua yang Anda butuhkan untuk membuat landing page konversi tinggi ada di sini.",
+    copyrightText: "© 2024 TemplateKu. Seluruh hak cipta dilindungi.",
+    navLinks: [
+      { title: "Beranda", url: "#" },
+      { title: "Fitur", url: "#fitur" },
+      { title: "Harga", url: "#harga" }
+    ]
+  };
+
+  for (const [key, val] of Object.entries(defaults)) {
+    if (!window.BloggerSettings[key] || (Array.isArray(window.BloggerSettings[key]) && window.BloggerSettings[key].length === 0)) {
+      window.BloggerSettings[key] = val;
+    }
+  }
+
   return window.BloggerSettings;
 }

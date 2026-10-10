@@ -86,7 +86,7 @@
   <!-- ========================================================
        KONEKSI REPOSITORY GITHUB VIA JSDELIVR (CSS TAILWIND)
        ======================================================== -->
-  <link href='https://cdn.jsdelivr.net/gh/pesonaku/template-blogspot-premium@v1.0.3/dist/style.css' rel='stylesheet'/>
+  <link href='https://cdn.jsdelivr.net/gh/pesonaku/template-blogspot-premium@v1.0.4/dist/style.css' rel='stylesheet'/>
 
 </head>
 <body>
@@ -104,9 +104,7 @@
     <!-- 01. Identitas Brand & CTA -->
     <b:section class='layout-section' id='header-settings' maxwidgets='2' name='👑 01. IDENTITAS BRAND &amp; CTA' showaddelement='yes'>
       <b:widget id='HTML2' locked='false' title='👑 01. Identitas Brand &amp; CTA' type='HTML' version='2' visible='true'>
-        <b:widget-setting name='content'><![CDATA[brandName: TemplateKu
-navCtaText: Beli Sekarang
-navCtaUrl: https://wa.me/6281234567890]]></b:widget-setting>
+
         <b:includable id='main'>
           <div class='widget-content' id='widget-brand-data'>
             <data:content/>
@@ -118,13 +116,7 @@ navCtaUrl: https://wa.me/6281234567890]]></b:widget-setting>
     <!-- 02. Menu Navigasi Header -->
     <b:section class='layout-section' id='nav-settings' maxwidgets='2' name='🧭 02. MENU NAVIGASI HEADER' showaddelement='yes'>
       <b:widget id='LinkList1' locked='false' title='🧭 02. Link Menu Navigasi' type='LinkList' version='2' visible='true'>
-        <b:widget-setting name='sorting'>NONE</b:widget-setting>
-        <b:widget-setting name='text-0'>Beranda</b:widget-setting>
-        <b:widget-setting name='link-0'>#</b:widget-setting>
-        <b:widget-setting name='text-1'>Fitur</b:widget-setting>
-        <b:widget-setting name='link-1'>#fitur</b:widget-setting>
-        <b:widget-setting name='text-2'>Harga</b:widget-setting>
-        <b:widget-setting name='link-2'>#harga</b:widget-setting>
+
         <b:includable id='main'>
           <div class='widget-content' id='nav-links-container'>
             <ul>
@@ -140,8 +132,7 @@ navCtaUrl: https://wa.me/6281234567890]]></b:widget-setting>
     <!-- 03. Pengaturan Lisensi Domain & API -->
     <b:section class='layout-section' id='license-settings' maxwidgets='2' name='🔐 03. PENGATURAN LISENSI DOMAIN' showaddelement='yes'>
       <b:widget id='HTML1' locked='false' title='🔐 03. Lisensi Domain &amp; API Server' type='HTML' version='2' visible='true'>
-        <b:widget-setting name='content'><![CDATA[licenseKey: DEMO-KEY-12345
-licenseApiUrl: example.com]]></b:widget-setting>
+
         <b:includable id='main'>
           <div class='widget-content' id='widget-license-data'>
             <data:content/>
@@ -153,11 +144,7 @@ licenseApiUrl: example.com]]></b:widget-setting>
     <!-- 04. Hero Section & Banner -->
     <b:section class='layout-section' id='hero-settings' maxwidgets='2' name='🚀 04. PENGATURAN HERO SECTION' showaddelement='yes'>
       <b:widget id='HTML3' locked='false' title='🚀 04. Konten Hero Banner' type='HTML' version='2' visible='true'>
-        <b:widget-setting name='content'><![CDATA[heroBadge: Versi 1.0 Baru Saja Rilis!
-heroTitle: Tingkatkan Penjualan Anda dengan Template Premium Ini
-heroSubtitle: Solusi landing page Blogspot terbaik untuk bisnis online Anda. Cepat, responsif, dan mudah disesuaikan tanpa perlu mengerti kode.
-heroPrimaryCta: Mulai Sekarang
-heroSecondaryCta: Pelajari Lebih Lanjut]]></b:widget-setting>
+
         <b:includable id='main'>
           <div class='widget-content' id='widget-hero-data'>
             <data:content/>
@@ -169,8 +156,7 @@ heroSecondaryCta: Pelajari Lebih Lanjut]]></b:widget-setting>
     <!-- 05. Sesi Fitur & Modul -->
     <b:section class='layout-section' id='features-settings' maxwidgets='2' name='🧩 05. SESI FITUR &amp; MODUL' showaddelement='yes'>
       <b:widget id='HTML4' locked='false' title='🧩 05. Pengaturan Sesi Fitur' type='HTML' version='2' visible='true'>
-        <b:widget-setting name='content'><![CDATA[featuresTitle: Fitur Unggulan Kami
-featuresSubtitle: Semua yang Anda butuhkan untuk membuat landing page konversi tinggi ada di sini.]]></b:widget-setting>
+
         <b:includable id='main'>
           <div class='widget-content' id='widget-features-data'>
             <data:content/>
@@ -182,7 +168,7 @@ featuresSubtitle: Semua yang Anda butuhkan untuk membuat landing page konversi t
     <!-- 06. Pengaturan Footer -->
     <b:section class='layout-section' id='footer-settings' maxwidgets='2' name='📜 06. PENGATURAN FOOTER' showaddelement='yes'>
       <b:widget id='HTML5' locked='false' title='📜 06. Footer &amp; Hak Cipta' type='HTML' version='2' visible='true'>
-        <b:widget-setting name='content'><![CDATA[copyrightText: © 2024 TemplateKu. Seluruh hak cipta dilindungi.]]></b:widget-setting>
+
         <b:includable id='main'>
           <div class='widget-content' id='widget-footer-data'>
             <data:content/>
@@ -231,7 +217,7 @@ featuresSubtitle: Semua yang Anda butuhkan untuk membuat landing page konversi t
   <!-- ========================================================
        KONEKSI REPOSITORY GITHUB VIA JSDELIVR (REACT JS BUNDLE)
        ======================================================== -->
-  <script src='https://cdn.jsdelivr.net/gh/pesonaku/template-blogspot-premium@v1.0.3/dist/app.js'></script>
+  <script src='https://cdn.jsdelivr.net/gh/pesonaku/template-blogspot-premium@v1.0.4/dist/app.js'></script>
 
 </body>
 </html>

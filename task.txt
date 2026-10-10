@@ -1,0 +1,17 @@
+buatkan saya issue.md yang isinya planning untuk di implementasikan oleh programer atau model Ai yang lebih murah
+
+saya ingin membuat template landingpage premium yang memiliki lisensi untuk setiap domain yang memiliki kode lisensi khusus
+
+saya ingin anda membuat kode template xml untuk blogspot dengan dependency sebagai berikut:
+
+- Blogspot.com (Kode XML)
+- Laravel
+- React JS
+- Tailwind CSS
+
+saya ingin library dan css di simpan di github lalu koneksikan repository di github dengan kode template xml yang ada di blogspot.com
+
+buatkan section setting costume yang keren di menu tataletak sebagai control konten di setiap sesi landing page
+
+untuk tugas pertama buatkan hanya kerangka awal landing page jangan dulu membuat konten apapun sebelum di intruksikan.
+
