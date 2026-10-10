@@ -1,4 +1,5 @@
 import React from 'react';
+import ErrorBoundary from './components/ErrorBoundary';
 import LicenseGuard from './components/LicenseGuard';
 import Navbar from './components/Navbar';
 import HeroSkeleton from './components/HeroSkeleton';
@@ -7,8 +8,9 @@ import FooterSkeleton from './components/FooterSkeleton';
 
 export default function App() {
   return (
-    <LicenseGuard>
-      <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans selection:bg-indigo-500 selection:text-white">
+    <ErrorBoundary>
+      <LicenseGuard>
+        <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans selection:bg-indigo-500 selection:text-white">
         {/* Navigation Bar */}
         <Navbar />
 
@@ -20,7 +22,8 @@ export default function App() {
 
         {/* Footer */}
         <FooterSkeleton />
-      </div>
-    </LicenseGuard>
+        </div>
+      </LicenseGuard>
+    </ErrorBoundary>
   );
 }
