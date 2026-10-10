@@ -126,7 +126,7 @@
       </b:widget>
 
       <!-- Widget 2: Identitas Brand / Navbar -->
-      <b:widget id='HTML2' locked='false' title='💎 02. Identitas Brand & Navbar' type='HTML' version='2' visible='true'>
+      <b:widget id='HTML2' locked='false' title='💎 02. Identitas Brand &amp; Navbar' type='HTML' version='2' visible='true'>
         <b:widget-settings>
           <b:widget-setting name='content'><![CDATA[{
   "brandName": "LANDING PRO",
@@ -174,7 +174,7 @@
       </b:widget>
 
       <!-- Widget 4: Sesi Fitur / Modul -->
-      <b:widget id='HTML4' locked='false' title='🧩 04. Pengaturan Sesi Modul & Fitur' type='HTML' version='2' visible='true'>
+      <b:widget id='HTML4' locked='false' title='🧩 04. Pengaturan Sesi Modul &amp; Fitur' type='HTML' version='2' visible='true'>
         <b:widget-settings>
           <b:widget-setting name='content'><![CDATA[{
   "featuresTitle": "Kerangka Modul Siap Pakai",
