@@ -105,21 +105,16 @@
 
       <!-- Widget 1: Lisensi Domain & API Server -->
       <b:widget id='HTML1' locked='false' title='🔐 01. Pengaturan Lisensi Domain' type='HTML' version='2' visible='true'>
-        <b:widget-settings>
-          <b:widget-setting name='content'><![CDATA[{
-  "licenseKey": "PREM-DEMO-0001-ABCD",
-  "licenseApiUrl": "https://license.example.com/api/verify-license"
-}]]></b:widget-setting>
-        </b:widget-settings>
         <b:includable id='main'>
           <script type='text/javascript'>
             window.BloggerSettings = window.BloggerSettings || {};
+            var rawContent1 = `<data:content/>`;
             try {
-              var licenseData = <data:content/>;
+              var licenseData = JSON.parse(rawContent1);
               window.BloggerSettings.licenseKey = licenseData.licenseKey || "";
               window.BloggerSettings.licenseApiUrl = licenseData.licenseApiUrl || "";
             } catch(e) {
-              window.BloggerSettings.licenseKey = "<data:content/>".trim();
+              window.BloggerSettings.licenseKey = rawContent1.trim();
             }
           </script>
         </b:includable>
@@ -127,18 +122,12 @@
 
       <!-- Widget 2: Identitas Brand / Navbar -->
       <b:widget id='HTML2' locked='false' title='💎 02. Identitas Brand &amp; Navbar' type='HTML' version='2' visible='true'>
-        <b:widget-settings>
-          <b:widget-setting name='content'><![CDATA[{
-  "brandName": "LANDING PRO",
-  "navCtaText": "Hubungi Kami",
-  "navCtaUrl": "#fitur"
-}]]></b:widget-setting>
-        </b:widget-settings>
         <b:includable id='main'>
           <script type='text/javascript'>
             window.BloggerSettings = window.BloggerSettings || {};
+            var rawContent2 = `<data:content/>`;
             try {
-              var brandData = <data:content/>;
+              var brandData = JSON.parse(rawContent2);
               window.BloggerSettings.brandName = brandData.brandName || "LANDING PRO";
               window.BloggerSettings.navCtaText = brandData.navCtaText || "Hubungi Kami";
               window.BloggerSettings.navCtaUrl = brandData.navCtaUrl || "#fitur";
@@ -149,20 +138,12 @@
 
       <!-- Widget 3: Sesi Hero Section -->
       <b:widget id='HTML3' locked='false' title='🚀 03. Pengaturan Hero Section' type='HTML' version='2' visible='true'>
-        <b:widget-settings>
-          <b:widget-setting name='content'><![CDATA[{
-  "heroBadge": "KERANGKA LANDING PAGE V1.0",
-  "heroTitle": "Template Blogspot Premium Berlisensi Domain",
-  "heroSubtitle": "Ditenagai oleh React JS, Tailwind CSS, dan Laravel API Server dengan koneksi langsung ke repository GitHub.",
-  "heroPrimaryCta": "Jelajahi Fitur",
-  "heroSecondaryCta": "Dokumentasi GitHub"
-}]]></b:widget-settings>
-        </b:widget-settings>
         <b:includable id='main'>
           <script type='text/javascript'>
             window.BloggerSettings = window.BloggerSettings || {};
+            var rawContent3 = `<data:content/>`;
             try {
-              var heroData = <data:content/>;
+              var heroData = JSON.parse(rawContent3);
               window.BloggerSettings.heroBadge = heroData.heroBadge;
               window.BloggerSettings.heroTitle = heroData.heroTitle;
               window.BloggerSettings.heroSubtitle = heroData.heroSubtitle;
@@ -175,17 +156,12 @@
 
       <!-- Widget 4: Sesi Fitur / Modul -->
       <b:widget id='HTML4' locked='false' title='🧩 04. Pengaturan Sesi Modul &amp; Fitur' type='HTML' version='2' visible='true'>
-        <b:widget-settings>
-          <b:widget-setting name='content'><![CDATA[{
-  "featuresTitle": "Kerangka Modul Siap Pakai",
-  "featuresSubtitle": "Kontrol konten setiap sesi tanpa menyentuh kode tema XML."
-}]]></b:widget-setting>
-        </b:widget-settings>
         <b:includable id='main'>
           <script type='text/javascript'>
             window.BloggerSettings = window.BloggerSettings || {};
+            var rawContent4 = `<data:content/>`;
             try {
-              var featData = <data:content/>;
+              var featData = JSON.parse(rawContent4);
               window.BloggerSettings.featuresTitle = featData.featuresTitle;
               window.BloggerSettings.featuresSubtitle = featData.featuresSubtitle;
             } catch(e) {}
@@ -195,16 +171,12 @@
 
       <!-- Widget 5: Sesi Footer -->
       <b:widget id='HTML5' locked='false' title='📜 05. Pengaturan Footer' type='HTML' version='2' visible='true'>
-        <b:widget-settings>
-          <b:widget-setting name='content'><![CDATA[{
-  "copyrightText": "© 2026 Template Blogspot Premium. All rights reserved."
-}]]></b:widget-setting>
-        </b:widget-settings>
         <b:includable id='main'>
           <script type='text/javascript'>
             window.BloggerSettings = window.BloggerSettings || {};
+            var rawContent5 = `<data:content/>`;
             try {
-              var footerData = <data:content/>;
+              var footerData = JSON.parse(rawContent5);
               window.BloggerSettings.copyrightText = footerData.copyrightText;
             } catch(e) {}
           </script>
